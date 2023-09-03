@@ -74,17 +74,17 @@ export function App() {
         <div className="RampGrid">
           <Transactions transactions={transactions} />
 
-          {transactions !== null && (
+        
+          {transactions !== null && paginatedTransactions?.nextPage != null && (
             <button
               className="RampButton"
-              disabled={paginatedTransactionsUtils.loading || paginatedTransactions?.nextPage == null}
+              disabled={paginatedTransactionsUtils.loading}
               onClick={async () => {
                 await loadAllTransactions()
               }}
             >
               View More
             </button>
-          )}
         </div>
       </main>
     </Fragment>
